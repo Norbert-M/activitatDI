@@ -18,6 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import javafx.stage.Stage;
 
 public class PrimaryController {
@@ -35,7 +37,19 @@ public class PrimaryController {
     private Button modificarButton;
 
     @FXML
-    private Button ordenarButton;
+    private SplitMenuButton ordenarButton;
+
+    @FXML
+    private MenuItem fechaAsc;
+
+    @FXML
+    private MenuItem fechaDesc;
+
+    @FXML
+    void initialize() {
+        fechaAsc.setOnAction(event -> ordenarDispositivosFecha(event, true));
+        fechaDesc.setOnAction(event -> ordenarDispositivosFecha(event, false));
+    }
 
     @FXML
     void addDispositivo(ActionEvent event) {
@@ -47,8 +61,6 @@ public class PrimaryController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,8 +74,6 @@ public class PrimaryController {
     void modificarDispositivo(Dispositivo dispositivo) {
         listViewDispositivos.getItems().set(listViewDispositivos.getSelectionModel().getSelectedIndex(), dispositivo);
     }
-
-    
 
     @FXML
     void imprimirDispositivos(ActionEvent event) {
@@ -102,11 +112,14 @@ public class PrimaryController {
     }
 
     @FXML
-    void ordenarDispositivosFecha(ActionEvent event) {
-
+    void ordenarDispositivosFecha(ActionEvent event, boolean ascendente) {
+        ObservableList<Dispositivo> dispositivos = FXCollections.observableArrayList(listViewDispositivos.getItems());
+        if (ascendente) {
+            dispositivos.sort(Comparator.comparing(Dispositivo::getFechaCompra));
+        } else {
+            dispositivos.sort(Comparator.comparing(Dispositivo::getFechaCompra).reversed());
+        }
+        listViewDispositivos.setItems(dispositivos);
     }
-
-    
-
 
 }

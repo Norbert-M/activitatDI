@@ -77,14 +77,15 @@ public class Dispositivo {
 
 
     public String toString() {
-        return "Dispositivo{" +
+        /*return "Dispositivo{" +
                 "id=" + id +
                 ", fechaCompra=" + fechaCompra +
                 ", precio=" + precio +
                 ", tipo=" + tipo +
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
-                '}';
+                '}';*/
+        return "Marca: "+marca + " Modelo: " + modelo + " Fecha de compra:  " + fechaCompra + " Precio: " + precio + " Tipo: " + tipo + " id: " + id ;
     }
 
     
