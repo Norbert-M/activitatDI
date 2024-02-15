@@ -84,14 +84,7 @@ public class Dispositivo {
     }
 
 
-    public void altaDispositivo(int id, LocalDate fechaCompra, double precio, TipoAtributo tipo, String marca, String modelo){
-        Dispositivo dispositivoNuevo = new Dispositivo(id, fechaCompra, precio, tipo, marca, modelo);
-
-        //Añadir dispositivo a la lista de dispositivos
-
-        
-        
-    }
+    
 
 
     
