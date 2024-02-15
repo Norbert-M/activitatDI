@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SecondaryController">
    <children>
       <Label layoutX="221.0" layoutY="14.0" text="Dispositivo:">
          <font>
@@ -50,7 +49,7 @@
       <TextField fx:id="tipoDispositivoText" layoutX="231.0" layoutY="187.0" promptText="Ej: PANTALLA" />
       <TextField fx:id="marcaText" layoutX="231.0" layoutY="223.0" promptText="Ej: ASUS" />
       <TextField fx:id="modeloText" layoutX="232.0" layoutY="262.0" promptText="Ej: PENDRE" />
-      <Button layoutX="147.0" layoutY="326.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Guardar" />
-      <Button layoutX="356.0" layoutY="327.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Cancelar" />
+      <Button fx:id="guardarButton" layoutX="147.0" layoutY="326.0" mnemonicParsing="false" onAction="#onHandleGuardarButton" prefHeight="26.0" prefWidth="78.0" text="Guardar" />
+      <Button fx:id="cancelarButton" layoutX="356.0" layoutY="327.0" mnemonicParsing="false" onAction="#onHandleCancelarButton" prefHeight="26.0" prefWidth="78.0" text="Cancelar" />
    </children>
 </AnchorPane>

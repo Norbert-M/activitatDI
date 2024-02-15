@@ -1,6 +1,8 @@
 package com.example.models;
 
+
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Dispositivo {
     public enum TipoAtributo {
@@ -8,13 +10,13 @@ public class Dispositivo {
     }
     
     private int id;
-    private LocalDate fechaCompra;
+    private Date fechaCompra;
     private double precio;
     private TipoAtributo tipo;
     private String marca;
     private String modelo;
 
-    public Dispositivo(int id, LocalDate fechaCompra, double precio, TipoAtributo tipo, String marca, String modelo) {
+    public Dispositivo(int id, Date fechaCompra, double precio, TipoAtributo tipo, String marca, String modelo) {
         this.id = id;
         this.fechaCompra = fechaCompra;
         this.precio = precio;
@@ -22,6 +24,8 @@ public class Dispositivo {
         this.marca = marca;
         this.modelo = modelo;
     }
+
+   
 
     public int getId() {
         return id;
@@ -31,11 +35,11 @@ public class Dispositivo {
         this.id = id;
     }
 
-    public LocalDate getFechaCompra() {
+    public Date getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(LocalDate fechaCompra) {
+    public void setFechaCompra(Date fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 
@@ -82,7 +86,6 @@ public class Dispositivo {
                 ", modelo='" + modelo + '\'' +
                 '}';
     }
-
 
     
 

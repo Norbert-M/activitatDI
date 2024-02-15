@@ -6,18 +6,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
    <children>
-      <ListView fx:id="listViewDispositivos" layoutX="54.0" layoutY="69.0" prefHeight="310.0" prefWidth="374.0" />
+      <ListView fx:id="listViewDispositivos" layoutX="54.0" layoutY="69.0" onEditStart="#initialize" prefHeight="310.0" prefWidth="374.0" />
       <Label layoutX="139.0" layoutY="24.0" text="Lista de dispositivos">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="anyadirButton" layoutX="448.0" layoutY="106.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Añadir dispositivo" />
-      <Button fx:id="modificarButton" layoutX="447.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Modificar dispositivo" />
-      <Button fx:id="ordenarButton" layoutX="447.0" layoutY="200.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Ordenar dispositivos" />
-      <Button fx:id="imprimirButton" layoutX="447.0" layoutY="253.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Imprimir" />
+      <Button fx:id="anyadirButton" layoutX="448.0" layoutY="106.0" mnemonicParsing="false" onAction="#addDispositivo" prefHeight="26.0" prefWidth="137.0" text="Añadir dispositivo" />
+      <Button fx:id="modificarButton" layoutX="447.0" layoutY="150.0" mnemonicParsing="false" onAction="#modifyDispositivo" prefHeight="26.0" prefWidth="138.0" text="Modificar dispositivo" />
+      <Button fx:id="ordenarButton" layoutX="447.0" layoutY="200.0" mnemonicParsing="false" onAction="#ordenarDispositivosFecha" prefHeight="26.0" prefWidth="138.0" text="Ordenar dispositivos" />
+      <Button fx:id="imprimirButton" layoutX="447.0" layoutY="253.0" mnemonicParsing="false" onAction="#imprimirDispositivos" prefHeight="26.0" prefWidth="138.0" text="Imprimir" />
    </children>
 </AnchorPane>
