@@ -49,7 +49,7 @@ public class PrimaryController {
             stage.show();
 
 
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,6 +57,10 @@ public class PrimaryController {
 
     void anyadirDispositivo(Dispositivo dispositivo) {
         listViewDispositivos.getItems().add(dispositivo);
+    }
+
+    void modificarDispositivo(Dispositivo dispositivo) {
+        listViewDispositivos.getItems().set(listViewDispositivos.getSelectionModel().getSelectedIndex(), dispositivo);
     }
 
     
@@ -83,7 +87,18 @@ public class PrimaryController {
 
     @FXML
     void modifyDispositivo(ActionEvent event) {
-
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("secondary.fxml"));
+            Parent root = fxmlLoader.load();
+            SecondaryController secondaryController = fxmlLoader.getController();
+            secondaryController.setPrimaryController(this);
+            secondaryController.setDispositivo(listViewDispositivos.getSelectionModel().getSelectedItem());
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

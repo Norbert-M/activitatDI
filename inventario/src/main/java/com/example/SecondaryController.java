@@ -51,32 +51,58 @@ public class SecondaryController {
     }
 
     @FXML
-    void onHandleGuardarButton(ActionEvent event) {
-        int id = Integer.parseInt(idText.getText());
-        double precio = Double.parseDouble(precioText.getText());
-        Dispositivo.TipoAtributo tipo = Dispositivo.TipoAtributo.valueOf(tipoDispositivoText.getText());
-        String marca = marcaText.getText();
-        String modelo = modeloText.getText();
+void onHandleGuardarButton(ActionEvent event) {
+    int id = Integer.parseInt(idText.getText());
+    double precio = Double.parseDouble(precioText.getText());
+    Dispositivo.TipoAtributo tipo = Dispositivo.TipoAtributo.valueOf(tipoDispositivoText.getText());
+    String marca = marcaText.getText();
+    String modelo = modeloText.getText();
 
-        try {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            String strDate = fechaCompraText.getText();
-            Date fechaCompra;
-            fechaCompra = formatter.parse(strDate);
+    try {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String strDate = fechaCompraText.getText();
+        Date fechaCompra;
+        fechaCompra = formatter.parse(strDate);
+
+        if (this.dispositivo == null) {
+            // Si el dispositivo es null, creamos uno nuevo
             this.dispositivo = new Dispositivo(id, fechaCompra, precio, tipo, marca, modelo);
-        } catch (ParseException e) {
-            System.out.println("Error en la fecha");
-            e.printStackTrace();
+            primaryController.anyadirDispositivo(dispositivo);
+        } else {
+            // Si el dispositivo ya existe, actualizamos sus datos
+            this.dispositivo.setId(id);
+            this.dispositivo.setFechaCompra(fechaCompra);
+            this.dispositivo.setPrecio(precio);
+            this.dispositivo.setTipo(tipo);
+            this.dispositivo.setMarca(marca);
+            this.dispositivo.setModelo(modelo);
+            primaryController.modificarDispositivo(dispositivo);
         }
-        primaryController.anyadirDispositivo(dispositivo);
-        ((Node) event.getSource()).getScene().getWindow().hide();
 
-        
-
+    } catch (ParseException e) {
+        System.out.println("Error en la fecha");
+        e.printStackTrace();
     }
+    
+    ((Node) event.getSource()).getScene().getWindow().hide();
+}
 
     public Dispositivo getDispositivo() {
         return dispositivo;
+    }
+
+    public void setDispositivo(Dispositivo dispositivo) {
+        this.dispositivo = dispositivo;
+
+        idText.setText(String.valueOf(dispositivo.getId()));
+        precioText.setText(String.valueOf(dispositivo.getPrecio()));
+        tipoDispositivoText.setText(dispositivo.getTipo().toString());
+        marcaText.setText(dispositivo.getMarca());
+        modeloText.setText(dispositivo.getModelo());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String strDate = formatter.format(dispositivo.getFechaCompra());
+        fechaCompraText.setText(strDate);
+
     }
 
     public void setPrimaryController(PrimaryController primaryController) {
