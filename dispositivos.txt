@@ -1,1 +1,1 @@
-Dispositivo{id=1234, fechaCompra=Sat Sep 12 00:00:00 CEST 2020, precio=333.33, tipo=PANTALLA, marca='Asus', modelo='Pendre'}
+Marca: ASUS Modelo: PENDRE Fecha de compra:  Sat Sep 12 00:00:00 CEST 2020 Precio: 33.33 Tipo: PANTALLA id: 1343
