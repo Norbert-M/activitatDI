@@ -44,12 +44,30 @@ public class SecondaryController {
 
     private Dispositivo dispositivo;
 
+    /**
+     * The `onHandleCancelarButton` function in Java closes the window associated with the
+     * `cancelarButton` when it is clicked.
+     * 
+     * @param event The `event` parameter in the `onHandleCancelarButton` method represents the action
+     * event that occurred, such as a button click or key press, triggering the method to be executed.
+     * In this case, it is used to handle the action of clicking the "Cancelar" button to close the
+     * window associated
+     */
     @FXML
     void onHandleCancelarButton(ActionEvent event) {
         cancelarButton.getScene().getWindow().hide();
 
     }
 
+    /**
+     * This Java function handles saving or updating device information based on user input and closes
+     * the current window afterwards.
+     * 
+     * @param event The `event` parameter in your `onHandleGuardarButton` method is of type
+     * `ActionEvent`. It represents the event that occurred, such as a button click, that triggered the
+     * method to be called. You can use this parameter to access information about the event that
+     * occurred, such as the source
+     */
     @FXML
 void onHandleGuardarButton(ActionEvent event) {
     int id = Integer.parseInt(idText.getText());
@@ -87,10 +105,22 @@ void onHandleGuardarButton(ActionEvent event) {
     ((Node) event.getSource()).getScene().getWindow().hide();
 }
 
+    /**
+     * The function `getDispositivo()` returns the `Dispositivo` object.
+     * 
+     * @return An object of type Dispositivo is being returned.
+     */
     public Dispositivo getDispositivo() {
         return dispositivo;
     }
 
+    /**
+     * The `setDispositivo` method sets the properties of a `Dispositivo` object to corresponding text
+     * fields in a user interface.
+     * 
+     * @param dispositivo The `setDispositivo` method you provided is used to set a `Dispositivo`
+     * object and update the corresponding fields in the UI with the information from that object.
+     */
     public void setDispositivo(Dispositivo dispositivo) {
         this.dispositivo = dispositivo;
 
@@ -105,6 +135,12 @@ void onHandleGuardarButton(ActionEvent event) {
 
     }
 
+    /**
+     * This Java function sets the primary controller for a class.
+     * 
+     * @param primaryController The `primaryController` parameter is an object of type
+     * `PrimaryController`.
+     */
     public void setPrimaryController(PrimaryController primaryController) {
         this.primaryController = primaryController;
     }

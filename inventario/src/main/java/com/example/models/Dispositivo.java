@@ -3,6 +3,7 @@ package com.example.models;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.function.BooleanSupplier;
 
 public class Dispositivo {
     public enum TipoAtributo {
@@ -86,6 +87,13 @@ public class Dispositivo {
                 ", modelo='" + modelo + '\'' +
                 '}';*/
         return "Marca: "+marca + " Modelo: " + modelo + " Fecha de compra:  " + fechaCompra + " Precio: " + precio + " Tipo: " + tipo + " id: " + id ;
+    }
+
+
+
+    public BooleanSupplier contains(Dispositivo dispositivo) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'contains'");
     }
 
     
